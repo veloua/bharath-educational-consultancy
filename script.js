@@ -45,7 +45,7 @@ if (enquiryForm) {
         const whatsappNumber = "919700688418";
 
         const whatsappMessage =
-            "Hello Bharath Educational Consultancy,%0A%0A" +
+            "Hello Bharath Educational Institution & Consultancy,%0A%0A" +
             "*New Enquiry*%0A%0A" +
             "*Name:* " + encodeURIComponent(name) + "%0A" +
             "*Phone:* " + encodeURIComponent(phone) + "%0A" +
@@ -81,4 +81,42 @@ if (menuToggle && mainNav) {
         });
 
     });
+}
+
+// =========================
+// SPECIAL ANNOUNCEMENT POPUP
+// =========================
+
+const openAnnouncement = document.getElementById("openAnnouncement");
+const announcementPopup = document.getElementById("announcementPopup");
+const closeAnnouncement = document.getElementById("closeAnnouncement");
+
+console.log("Announcement button:", openAnnouncement);
+console.log("Announcement popup:", announcementPopup);
+console.log("Close button:", closeAnnouncement);
+
+if (openAnnouncement && announcementPopup && closeAnnouncement) {
+
+    openAnnouncement.addEventListener("click", function () {
+        announcementPopup.hidden = false;
+    });
+
+    closeAnnouncement.addEventListener("click", function () {
+        announcementPopup.hidden = true;
+    });
+
+    announcementPopup.addEventListener("click", function (event) {
+        if (event.target === announcementPopup) {
+            announcementPopup.hidden = true;
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            announcementPopup.hidden = true;
+        }
+    });
+
+} else {
+    console.error("Announcement HTML elements are missing. Check index.html.");
 }
